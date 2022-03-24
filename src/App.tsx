@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 export const App = () => {
   const [starWarsMovies, setStarWarsMovies] = useState<IFilms | []>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const getStarWarsMovies = async () => {
     try {
