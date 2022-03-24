@@ -1,4 +1,4 @@
-*Run on local machine*
+*Run on local machine* <br/>
 `git clone https://github.com/ArastoSahbaei/reimagined-bassoon.git` <br/>
 `cd ` <br/>
 `npm install` <br/>
