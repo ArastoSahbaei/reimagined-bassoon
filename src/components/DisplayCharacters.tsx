@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 `
 
 const Grid = styled.div`
- height: 70%;
+ height: 66%;
  margin-top: 5%;
  column-count: 3;
  column-fill: auto !important;
