@@ -1,0 +1,9 @@
+const MOBILE_WIDTH = 1140
+const PRIMARY_COLOR = '#34495e'
+const SECONDARY_COLOR = '#3598db'
+
+export default {
+  MOBILE_WIDTH,
+  PRIMARY_COLOR,
+  SECONDARY_COLOR
+}
