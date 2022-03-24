@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { DisplayMovies } from './components/DisplayMovies'
 import { Spinner } from './components/Spinner'
+import { IFilms } from './shared/interfaces/IFilms'
 import SwapiAPIService from './shared/api/services/SwapiAPIService'
 import Constants from './shared/data/Constants'
 import styled from 'styled-components'
 
 export const App = () => {
-  const [starWarsMovies, setStarWarsMovies] = useState<any>([])
+  const [starWarsMovies, setStarWarsMovies] = useState<IFilms | []>([])
   const [loading, setLoading] = useState(true)
 
   const getStarWarsMovies = async () => {

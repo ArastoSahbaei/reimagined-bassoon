@@ -1,20 +1,21 @@
+import { IFilms, Result } from "src/shared/interfaces/IFilms"
 import { useState } from "react"
 import { Modal } from "./Modal"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
 
-export const DisplayMovies = (props: { starWarsMovies: any }) => {
+export const DisplayMovies = (props: { starWarsMovies: IFilms | any }) => {
   const { starWarsMovies } = props
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [choosenMovie, setChoosenMovie] = useState()
+  const [choosenMovie, setChoosenMovie] = useState<Result | []>([])
 
-  const handleModalOpen = (movies: any) => {
+  const handleModalOpen = (movies: Result) => {
     !openModal && setChoosenMovie(movies)
     !openModal && setOpenModal(true)
   }
 
   return (
-    starWarsMovies.results.map((movies: any, index: number) => (
+    starWarsMovies.results.map((movies: Result, index: number) => (
       <Wrapper key={index} onClick={() => handleModalOpen(movies)}>
         {openModal && <Modal setOpenModal={setOpenModal} movieData={choosenMovie} />}
         <List>

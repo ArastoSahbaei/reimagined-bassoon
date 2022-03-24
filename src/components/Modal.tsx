@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import { DisplayCharacters } from "./DisplayCharacters"
+import { ICharacters } from "src/shared/interfaces/ICharacters"
+import { Result } from "src/shared/interfaces/IFilms"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
 import SwapiAPIService from "src/shared/api/services/SwapiAPIService"
 
-export const Modal = (props: { setOpenModal: any, movieData: any }) => {
-  const [characters, setCharacters] = useState<any>([])
+export const Modal = (props: { setOpenModal: (handler: boolean) => void, movieData: Result | any }) => {
+  const [characters, setCharacters] = useState<any | []>([])
 
   const getCharacters = () => {
-    const promisedArray: any = []
+    const promisedArray: ICharacters[] = []
     props.movieData.characters.forEach(async (item: any) => {
+      console.log(props.movieData)
       const getID = item.substr(29).replace(/\//g, "")
       try {
         const { data } = await SwapiAPIService.getCharacterByID(getID)
@@ -29,7 +32,7 @@ export const Modal = (props: { setOpenModal: any, movieData: any }) => {
   return (
     <Wrapper>
       <Exit onClick={() => props.setOpenModal(false)}>Close</Exit>
-      <Title onClick={() => console.log(characters)}>{props.movieData.title}</Title>
+      <Title>{props.movieData.title}</Title>
       <DisplayCharacters characters={characters} />
     </Wrapper>
   )
