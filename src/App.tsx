@@ -13,7 +13,6 @@ export const App = () => {
 
   useEffect(() => {
     getStarWarsMovies(setStarWarsMovies, setLoading)
-    console.log(starWarsMovies)
   }, [])
 
   return (

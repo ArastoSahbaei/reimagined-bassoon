@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+
 export interface ICharacters {
+    name?: ReactNode;
     count:    number;
     next:     string;
     previous: null;

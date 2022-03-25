@@ -7,7 +7,7 @@ export const DisplayCharacters = (props: { characters: Array<ICharacters> | [] }
     <Wrapper>
       <Title>Characters</Title>
       <Grid>
-        {props.characters.map((element: any, index: number) =>
+        {props.characters.map((element: ICharacters, index: number) =>
           <Paragraph key={index}>{element.name}</Paragraph>
         )}
       </Grid>
