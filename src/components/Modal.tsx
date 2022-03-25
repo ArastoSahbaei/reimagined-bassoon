@@ -10,14 +10,11 @@ export const Modal = (props: { setOpenModal: (handler: boolean) => void, movieDa
   const [characters, setCharacters] = useState<any | []>([])
 
   const getCharacters = () => {
-    const promisedArray: ICharacters[] = []
     props.movieData.characters.forEach(async (item: any) => {
       const getID = item.substr(29).replace(/\//g, "")
       try {
         const { data } = await SwapiAPIService.getCharacterByID(getID)
-        promisedArray.push(data)
-        const promise = await Promise.all(promisedArray)
-        setCharacters(promise)
+        setCharacters((prevState: [ICharacters]) => [...prevState, data])
       } catch (error) {
         console.log(error)
       }
