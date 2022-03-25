@@ -3,7 +3,7 @@ import { ICharacters } from "src/shared/interfaces/ICharacters"
 
 export const useStarWars = () => {
 
-  const getCharacters = (list: [string], setLocalComponentState: (prevState: any) => void) => {
+  const getCharacters = (list: [string], setLocalComponentState: (prevState: (any)) => void) => {
     list.forEach(async (item: any) => {
       const getID = item.substr(29).replace(/\//g, "")
       try {
@@ -15,7 +15,7 @@ export const useStarWars = () => {
     })
   }
 
-  const getStarWarsMovies = async (setLocalComponentState: any, setLoading?: any) => {
+  const getStarWarsMovies = async (setLocalComponentState: (data: any) => void, setLoading?: (handler: boolean) => void) => {
     try {
       const { data } = await SwapiAPIService.getStarWarsMovies()
       setLocalComponentState(data)
