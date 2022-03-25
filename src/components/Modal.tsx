@@ -1,28 +1,16 @@
 import { useEffect, useState } from "react"
 import { DisplayCharacters } from "./DisplayCharacters"
-import { ICharacters } from "src/shared/interfaces/ICharacters"
+import { useStarWars } from "src/hooks/useStarWars"
 import { Result } from "src/shared/interfaces/IFilms"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
-import SwapiAPIService from "src/shared/api/services/SwapiAPIService"
 
 export const Modal = (props: { setOpenModal: (handler: boolean) => void, movieData: Result | any }) => {
   const [characters, setCharacters] = useState<any | []>([])
-
-  const getCharacters = () => {
-    props.movieData.characters.forEach(async (item: any) => {
-      const getID = item.substr(29).replace(/\//g, "")
-      try {
-        const { data } = await SwapiAPIService.getCharacterByID(getID)
-        setCharacters((prevState: [ICharacters]) => [...prevState, data])
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
+  const { getCharacters } = useStarWars()
 
   useEffect(() => {
-    getCharacters()
+    getCharacters(props.movieData.characters, setCharacters)
   }, [])
 
   return (

@@ -1,27 +1,18 @@
 import { useEffect, useState } from 'react'
 import { DisplayMovies } from './components/DisplayMovies'
+import { useStarWars } from './hooks/useStarWars'
 import { Spinner } from './components/Spinner'
 import { IFilms } from './shared/interfaces/IFilms'
-import SwapiAPIService from './shared/api/services/SwapiAPIService'
 import Constants from './shared/data/Constants'
 import styled from 'styled-components'
 
 export const App = () => {
   const [starWarsMovies, setStarWarsMovies] = useState<IFilms | []>([])
   const [loading, setLoading] = useState<boolean>(true)
-
-  const getStarWarsMovies = async () => {
-    try {
-      const { data } = await SwapiAPIService.getStarWarsMovies()
-      setStarWarsMovies(data)
-      setLoading(false)
-    } catch (error) {
-      setLoading(false)
-    }
-  }
+  const { getStarWarsMovies } = useStarWars()
 
   useEffect(() => {
-    getStarWarsMovies()
+    getStarWarsMovies(setStarWarsMovies, setLoading)
   }, [])
 
   return (
