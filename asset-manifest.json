@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/reimagined-bassoon/static/js/main.3161e2a3.js",
+    "main.js": "/reimagined-bassoon/static/js/main.9d70e85f.js",
     "static/js/787.91577f22.chunk.js": "/reimagined-bassoon/static/js/787.91577f22.chunk.js",
     "static/media/logo.gif": "/reimagined-bassoon/static/media/logo.5ea28ced666ab3f5ac18.gif",
     "index.html": "/reimagined-bassoon/index.html",
-    "main.3161e2a3.js.map": "/reimagined-bassoon/static/js/main.3161e2a3.js.map",
+    "main.9d70e85f.js.map": "/reimagined-bassoon/static/js/main.9d70e85f.js.map",
     "787.91577f22.chunk.js.map": "/reimagined-bassoon/static/js/787.91577f22.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.3161e2a3.js"
+    "static/js/main.9d70e85f.js"
   ]
 }
