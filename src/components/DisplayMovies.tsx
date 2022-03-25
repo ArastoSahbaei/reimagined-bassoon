@@ -15,15 +15,17 @@ export const DisplayMovies = (props: { starWarsMovies: IFilms | any }) => {
   }
 
   return (
-    starWarsMovies.results.map((movies: Result, index: number) => (
-      <Wrapper key={index} onClick={() => handleModalOpen(movies)}>
-        {openModal && <Modal setOpenModal={setOpenModal} movieData={choosenMovie} />}
-        <List>
-          <Title>{movies.title}</Title>
-          <Date>{movies.release_date}</Date>
-        </List>
-      </Wrapper>
-    ))
+    <>
+      {openModal && <Modal setOpenModal={setOpenModal} movieData={choosenMovie} />}
+      {starWarsMovies.results.map((movies: Result, index: number) => (
+        <Wrapper key={index} onClick={() => handleModalOpen(movies)}>
+          <List>
+            <Title>{movies.title}</Title>
+            <Date>{movies.release_date}</Date>
+          </List>
+        </Wrapper>
+      ))}
+    </>
   )
 }
 
