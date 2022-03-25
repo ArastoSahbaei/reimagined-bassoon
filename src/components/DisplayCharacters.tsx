@@ -1,13 +1,13 @@
-import { Result } from "src/shared/interfaces/ICharacters"
+import { ICharacters } from "src/shared/interfaces/ICharacters"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
 
-export const DisplayCharacters = (props: { characters: [Result] }) => {
+export const DisplayCharacters = (props: { characters: Array<ICharacters> | [] }) => {
   return (
     <Wrapper>
       <Title>Characters</Title>
       <Grid>
-        {props.characters.map((element: Result, index: number) =>
+        {props.characters.map((element: any, index: number) =>
           <Paragraph key={index}>{element.name}</Paragraph>
         )}
       </Grid>

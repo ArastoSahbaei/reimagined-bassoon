@@ -7,12 +7,13 @@ import Constants from './shared/data/Constants'
 import styled from 'styled-components'
 
 export const App = () => {
-  const [starWarsMovies, setStarWarsMovies] = useState<IFilms | []>([])
+  const [starWarsMovies, setStarWarsMovies] = useState<Array<IFilms> | []>([])
   const [loading, setLoading] = useState<boolean>(true)
   const { getStarWarsMovies } = useStarWars()
 
   useEffect(() => {
     getStarWarsMovies(setStarWarsMovies, setLoading)
+    console.log(starWarsMovies)
   }, [])
 
   return (

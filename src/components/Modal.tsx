@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { DisplayCharacters } from "./DisplayCharacters"
+import { ICharacters } from "src/shared/interfaces/ICharacters"
 import { useStarWars } from "src/hooks/useStarWars"
 import { Result } from "src/shared/interfaces/IFilms"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
 
-export const Modal = (props: { setOpenModal: (handler: boolean) => void, movieData: Result | any }) => {
-  const [characters, setCharacters] = useState<any | []>([])
+export const Modal = (props: { setOpenModal: (handler: boolean) => void, movieData: Array<Result> | any }) => {
+  const [characters, setCharacters] = useState<Array<ICharacters> | []>([])
   const { getCharacters } = useStarWars()
 
   useEffect(() => {

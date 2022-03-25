@@ -4,7 +4,7 @@ import { Modal } from "./Modal"
 import Constants from "src/shared/data/Constants"
 import styled from "styled-components"
 
-export const DisplayMovies = (props: { starWarsMovies: IFilms | any }) => {
+export const DisplayMovies = (props: { starWarsMovies: Array<IFilms> | any }) => {
   const { starWarsMovies } = props
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [choosenMovie, setChoosenMovie] = useState<Result | []>([])
