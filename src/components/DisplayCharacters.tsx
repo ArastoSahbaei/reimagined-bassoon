@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 `
 
 const Grid = styled.div`
- height: 66%;
+ height: 59%;
  margin-top: 5%;
  column-count: 3;
  column-fill: auto !important;
@@ -44,6 +44,6 @@ const Title = styled.p`
 `
 
 const Paragraph = styled.p`
-  font-size: 1.4rem;
+  font-size: 0.9rem;
   padding: 1.4%;
 `
